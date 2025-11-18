@@ -1,48 +1,44 @@
-'use client'
-import React, { useEffect, useState } from "react";
+"use client";
 import PopularCatagoriesItems from "./PopularCatagoriesItems";
+import { useEffect, useState } from "react";
 
-const PopularCatagories = () => {
-  const [mubin, setMubin] = useState([]);
+export default function PopularCatagories() {
+  const [categories, setCategories] = useState([]);
 
-  async function getProduct() {
-    const res = await fetch("https://dummyjson.com/products");
+  async function fetchProducts() {
+    const res = await fetch("https://dummyjson.com/products?limit=100");
     const data = await res.json();
-    setMubin(data.products);
+
+    const uniqueCats = [];
+    const used = new Set();
+
+    for (let item of data.products) {
+      if (!used.has(item.category)) {
+        used.add(item.category);
+        uniqueCats.push(item);
+      }
+    }
+
+    setCategories(uniqueCats);
   }
 
   useEffect(() => {
-    getProduct();
+    fetchProducts();
   }, []);
 
   return (
-    <section className="py-8 sm:py-12 lg:py-16 bg-gray-50">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+    <section className="py-12 bg-gray-50">
+      <div className="container mx-auto px-4">
 
-        <div className="text-center mb-8 sm:mb-12">
-          <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-gray-800 mb-3">
-            Popular Categories
-          </h2>
-          <p className="text-gray-600 text-sm sm:text-base lg:text-lg max-w-2xl mx-auto">
-            Discover our most popular product categories with the best quality
-            and prices
-          </p>
-        </div>
+        <h2 className="text-3xl font-bold mb-6">Popular Categories</h2>
 
-        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-4 sm:gap-6">
-          {mubin?.map((item) => (
-            <PopularCatagoriesItems key={item.id} mubinproduct={item} />
+        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 xl:grid-cols-6 gap-6">
+          {categories.map((item) => (
+            <PopularCatagoriesItems key={item.id} product={item} />
           ))}
         </div>
 
-        <div className="text-center mt-8 sm:mt-12">
-          <button className="bg-green-600 hover:bg-green-700 text-white px-6 sm:px-8 py-3 sm:py-4 rounded-full font-semibold text-sm sm:text-base transition-all duration-200 shadow-lg hover:shadow-xl transform hover:scale-105 active:scale-95">
-            View All Categories
-          </button>
-        </div>
       </div>
     </section>
   );
-};
-
-export default PopularCatagories;
+}
