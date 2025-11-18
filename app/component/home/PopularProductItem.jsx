@@ -17,7 +17,7 @@ const PopularProductItem = ({ product }) => {
       <article className="w-full bg-white rounded-2xl shadow-md hover:shadow-xl transition-all duration-300 overflow-hidden border border-gray-100 cursor-pointer">
         
         {/* Image */}
-        <div className="relative w-full aspect-[4/5]">
+        <div className="relative w-full ">
           <Image
   src={imageSrc}
   alt={product?.title}
