@@ -18,12 +18,15 @@ const NavBar = () => {
         <div className="flex items-center justify-between py-4">
 
           <div className="flex items-center">
+          <Link href={'/'}>
             <Image 
               src={logo} 
               alt="logo" 
               className="w-24 h-auto md:w-32 lg:w-auto"
               priority
+              
             />
+          </Link>
           </div>
 
           <div className="hidden md:flex flex-1 max-w-2xl mx-4">

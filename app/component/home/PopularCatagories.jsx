@@ -1,3 +1,4 @@
+
 import PopularCatagoriesItems from "./PopularCatagoriesItems";
 
 async function fetchProducts() {
@@ -11,7 +12,6 @@ async function fetchProducts() {
 export default async function PopularCatagories() {
   const allProducts = await fetchProducts();
 
-  // Unique Category list
   const used = new Set();
   const categories = [];
 
