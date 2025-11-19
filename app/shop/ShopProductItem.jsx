@@ -57,7 +57,6 @@ const ShopProductItem = ({ product }) => {
           </div>
         </div>
 
-        {/* CART BUTTON */}
       </div>
     </Link>
   );
