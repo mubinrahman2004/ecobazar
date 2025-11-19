@@ -30,8 +30,7 @@ export default function BlogPage() {
 
   return (
     <div className="min-h-screen bg-gray-50 py-10">
-      {/* <div className="absolute top-2 left-1.5">
-      </div> */}
+   
       <div className="relative ">
         <Image src={background} alt="backgrount "/>
        <p className="text-white container  absolute flex items-center gap-3 top-2 left-2"><IoMdHome /> Blog</p>

@@ -1,8 +1,11 @@
 import PopularProductItem from "./PopularProductItem";
 
 const fetchPopularProducts = async () => {
+  const random=Math.floor (Math.random() *99)+1;
   try {
-    const response = await fetch("https://dummyjson.com/products?limit=8", {
+    const response = await fetch(`https://dummyjson.com/products?limit=8&skip=${random}`, {
+      mathod:"GET",
+      cache:"no-store",
       next: { revalidate: 60 },
     });
     if (!response.ok) {

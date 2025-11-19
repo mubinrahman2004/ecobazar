@@ -1,4 +1,4 @@
-'use client'
+
 import Image from "next/image";
 async function getProduct(id) {
   const res = await fetch(`https://dummyjson.com/products/${id}`);

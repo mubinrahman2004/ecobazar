@@ -120,6 +120,9 @@ const NavBar = () => {
               <li>
                 <Link href={'/contact'} className="text-white hover:text-green-400 transition-colors text-sm lg:text-base">Contact Us</Link>
               </li>
+              <li>
+                <Link href={'account'} className="text-white hover:text-green-400 transition-colors text-sm lg:text-base">Account</Link>
+              </li>
             </ul>
 
           
