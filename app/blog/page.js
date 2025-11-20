@@ -17,7 +17,6 @@ export default function BlogPage() {
     const productRes = await fetch("https://dummyjson.com/products?limit=20");
     const productData = await productRes.json();
 
-    // product thumbnails
     const images = productData.products.map((p) => p.thumbnail);
 
     setProductImages(images);

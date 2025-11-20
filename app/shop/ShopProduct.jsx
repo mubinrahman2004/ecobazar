@@ -9,7 +9,6 @@ const ShopProduct = () => {
   const [page, setPage] = useState(1);
   const [total, setTotal] = useState(0);
 
-  // Fetch Products
   useEffect(() => {
     async function fetchProducts() {
       const skip = (page - 1) * limit;
@@ -27,7 +26,6 @@ const ShopProduct = () => {
 
   const totalPages = Math.ceil(total / limit);
 
-  // Generate page numbers
   const pageNumbers = [];
   for (let i = 1; i <= totalPages; i++) {
     pageNumbers.push(i);
@@ -37,7 +35,6 @@ const ShopProduct = () => {
     <section className="py-10 bg-gray-50">
       <div className="container mx-auto px-4">
 
-        {/* TOP RIGHT LIMIT SELECT */}
         <div className="flex justify-end mb-6">
           <select
             className="border px-3 py-2 rounded-lg text-sm"
@@ -54,17 +51,14 @@ const ShopProduct = () => {
           </select>
         </div>
 
-        {/* PRODUCT GRID */}
         <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-5">
           {products.map((product) => (
             <ShopProductItem key={product.id} product={product} />
           ))}
         </div>
 
-        {/* PAGINATION (SAME AS YOUR SCREENSHOT) */}
         <div className="flex justify-center items-center gap-3 mt-10 select-none">
 
-          {/* LEFT ARROW */}
           <button
             onClick={() => setPage(page - 1)}
             disabled={page === 1}
@@ -74,8 +68,6 @@ const ShopProduct = () => {
           >
             <span className="text-xl">‹</span>
           </button>
-
-          {/* Numbers with ... */}
           {pageNumbers.map((num, index) => {
             if (
               num === 1 ||
