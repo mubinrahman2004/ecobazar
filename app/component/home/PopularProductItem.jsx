@@ -1,7 +1,5 @@
-'use client'
 import Image from "next/image";
 import Link from "next/link";
-import { FaShopify } from "react-icons/fa";
 
 const PopularProductItem = ({ product }) => {
   const imageSrc =
@@ -16,14 +14,15 @@ const PopularProductItem = ({ product }) => {
     <Link href={`/product/${product.id}`}>
       <article className="w-full bg-white rounded-2xl shadow-md hover:shadow-xl transition-all duration-300 overflow-hidden border border-gray-100 cursor-pointer">
         
-        <div className="relative w-full ">
+        <div className="relative w-full">
           <Image
-  src={imageSrc}
-  alt={product?.title}
-  width={800}
-  height={800}
-  className="w-full h-auto rounded-xl object-contain"
-/>
+            src={imageSrc}
+            alt={product?.title || "Product image"}
+            width={800}
+            height={800}
+            className="w-full h-auto rounded-xl object-contain"
+            priority={false}
+          />
         </div>
 
         <div className="p-4 sm:p-5 md:p-6">
@@ -46,14 +45,18 @@ const PopularProductItem = ({ product }) => {
               </span>
             </div>
 
-            <button
-              className="bg-green-600 hover:bg-green-700 text-white p-2 sm:p-3 md:p-4 rounded-full transition duration-200 shadow-lg hover:shadow-xl transform hover:scale-110 active:scale-95"
-              type="button"
-              onClick={(e) => e.preventDefault()} 
-              
-            >
-              <FaShopify className="text-xl sm:text-2xl md:text-3xl" />
-            </button>
+            {/* Static shop icon - no interactivity */}
+            <div className="bg-green-600 text-white p-2 sm:p-3 md:p-4 rounded-full shadow-lg">
+              <svg 
+                className="text-xl sm:text-2xl md:text-3xl" 
+                fill="currentColor" 
+                viewBox="0 0 16 16" 
+                width="1em" 
+                height="1em"
+              >
+                <path d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 12H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM3.102 4l1.313 7h8.17l1.313-7H3.102zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"/>
+              </svg>
+            </div>
           </div>
 
         </div>

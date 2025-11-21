@@ -1,65 +1,38 @@
-"use client";
+// import Image from "next/image";
+// import Link from "next/link";
 
-import Image from "next/image";
-import Link from "next/link";
-import { FaShopify } from "react-icons/fa";
-import { BsStarFill, BsStar } from "react-icons/bs";
-
-const ShopProductItem = ({ product }) => {
-  const imageSrc =
-    product.thumbnail || product.images?.[0] || "/placeholder.png";
-
-  const rating = Math.round(product.rating || 0);
-
-  return (
-    <Link href={`/product/${product.id}`}>
-      <div className="bg-white rounded-2xl border shadow-sm hover:shadow-md transition cursor-pointer p-3 ">
+// const ShopProductItem = ({ product }) => {
+//   return (
+//     <Link href={`/product/${product.id}`}>
+//       <div className="bg-white rounded-lg sm:rounded-xl lg:rounded-2xl border shadow-sm hover:shadow-md transition-all duration-300 cursor-pointer p-2 sm:p-3 h-full flex flex-col">
        
-        <div className="relative w-full h-40 mb-3">
-          <Image
-            src={imageSrc}
-            alt={product.title}
-            fill
-            className="object-contain p-2"
-          />
-        </div>
+//         <div className="relative w-full h-28 xs:h-32 sm:h-36 md:h-40 mb-2 sm:mb-3 flex">
+//           <Image
+//             src={product?.thumbnail || '/placeholder-image.jpg'}
+//             alt={product?.title}
+//             fill
+//             className="object-contain p-1 sm:p-2"
+//             sizes="(max-width: 480px) 50vw, (max-width: 640px) 33vw, (max-width: 768px) 25vw, (max-width: 1024px) 20vw, (max-width: 1280px) 16vw, 12vw"
+//             priority={false}
+//           />
+//         </div>
 
-       
-        <div className="flex justify-between">
-          <div>
-            <h3 className="text-sm font-semibold mb-1 line-clamp-1">
-              {product.title}
-            </h3>
+//         <div className="flex flex-col flex-grow">
+//           <h3 className="text-xs xs:text-sm font-semibold mb-1 line-clamp-2 flex-grow leading-tight">
+//             {product.title}
+//           </h3>
 
-          
-            <p className="text-green-600 font-bold text-base">
-              ${product.price}
-            </p>
+//           <div className="mt-1 sm:mt-2">
+//             <div className="flex items-center gap-1 sm:gap-2">
+//               <p className="text-green-600 font-bold text-sm sm:text-base">
+//                 $ {product.price}
+//               </p>
+//             </div>
+//           </div>
+//         </div>
+//       </div>
+//     </Link>
+//   );
+// };
 
-           
-            <div className="flex items-center mt-2">
-              {Array.from({ length: 5 }).map((_, i) =>
-                i < rating ? (
-                  <BsStarFill key={i} className="text-yellow-400 text-xs" />
-                ) : (
-                  <BsStar key={i} className="text-gray-300 text-xs" />
-                )
-              )}
-            </div>
-          </div>
-          <div>
-            <button
-              onClick={(e) => e.preventDefault()}
-              className="mt-3 w-8 h-8 bg-green-500 text-white rounded-full flex items-center justify-center hover:bg-green-600"
-            >
-              <FaShopify />
-            </button>
-          </div>
-        </div>
-
-      </div>
-    </Link>
-  );
-};
-
-export default ShopProductItem;
+// export default ShopProductItem;
