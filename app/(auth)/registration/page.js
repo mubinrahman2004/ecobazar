@@ -1,16 +1,17 @@
-"use client"
+"use client";
 import React, { useState } from "react";
 import Link from "next/link";
 import { toast, ToastContainer } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
 import { useRouter } from "next/navigation";
+import "react-toastify/dist/ReactToastify.css";
 
-const Page = () => {
+const Register = () => {
   const [userData, setUserData] = useState({
     username: "",
     email: "",
     password: "",
   });
+
 
   const router = useRouter();
 
@@ -20,7 +21,7 @@ const Page = () => {
     try {
       const res = await fetch("https://api.freeapi.app/api/v1/users/register", {
         method: "POST",
-        headers: { "content-type": "application/json" },
+        headers: { "Content-Type": "application/json" },
         body: JSON.stringify(userData),
       });
 
@@ -31,94 +32,102 @@ const Page = () => {
         return;
       }
 
-      toast.success("Signup successful! Redirecting...");
-      setTimeout(() => {
-        router.push("/login");
-      }, 1500);
+      toast.success(result.message);
 
+      setTimeout(() => router.push("/login"), 1500);
     } catch (error) {
-      console.log(error);
-      toast.error("Something went wrong");
+      toast.error("Something went wrong!");
     }
   };
 
   return (
     <>
-      <ToastContainer />
+      <ToastContainer
+        position="top-right"
+        autoClose={3000}
+        theme="light"
+      />
 
-      <div className="min-h-screen flex items-center justify-center">
-        <div className="w-full max-w-md mx-4">
-          <div className="bg-white p-8 rounded-2xl shadow-lg border border-gray-300">
-            <h2 className="text-2xl font-bold text-gray-800 text-center mb-2">
-              Sign up
-            </h2>
-            <p className="text-gray-600 mb-6 text-center">
-              Enter your credentials to create your account
-            </p>
+      <div className="min-h-screen flex items-center justify-center bg-gray-50 py-4 px-4 sm:px-6 lg:px-8">
+        <div className="w-full max-w-md">
+          <div className="bg-white p-6 sm:p-8 rounded-2xl shadow-lg border border-gray-300">
+            <div className="text-center mb-6">
+              <h2 className="text-2xl sm:text-3xl font-bold text-gray-800 mb-2">
+                Create Account
+              </h2>
+              <p className="text-gray-600 text-sm sm:text-base">
+                Enter your credentials to create your account
+              </p>
+            </div>
 
-            <form onSubmit={handleSubmit} className="space-y-6">
+            <form onSubmit={handleSubmit} className="space-y-4 sm:space-y-6">
               <div>
-                <label className="block text-sm font-medium text-gray-700 mb-2">
+                <label className="block text-gray-700 text-sm font-bold mb-2">
                   Username
                 </label>
                 <input
-                  value={userData.username}
+                id="username"
+                 type="username"
+                  
                   onChange={(e) =>
                     setUserData({ ...userData, username: e.target.value })
                   }
-                  type="text"
-                  placeholder="Enter username"
-                  className="w-full px-4 py-3 border rounded-xl"
+                  placeholder="Enter your username"
+                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent transition-all duration-200"
                   required
                 />
               </div>
 
               <div>
-                <label className="block text-sm font-medium text-gray-700 mb-2">
+                <label className="block text-gray-700 text-sm font-bold mb-2">
                   Email Address
                 </label>
                 <input
-                  value={userData.email}
+                  type="email"
                   onChange={(e) =>
                     setUserData({ ...userData, email: e.target.value })
                   }
-                  type="email"
-                  placeholder="Enter email"
-                  className="w-full px-4 py-3 border rounded-xl"
+                  placeholder="Enter your email"
+                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent transition-all duration-200"
                   required
                 />
               </div>
 
               <div>
-                <label className="block text-sm font-medium text-gray-700 mb-2">
+                <label className="block text-gray-700 text-sm font-bold mb-2">
                   Password
                 </label>
                 <input
-                  value={userData.password}
+
+                  type="password"
                   onChange={(e) =>
                     setUserData({ ...userData, password: e.target.value })
                   }
-                  type="password"
-                  placeholder="Enter password"
-                  className="w-full px-4 py-3 border rounded-xl"
+                  placeholder="Enter your password"
+                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent transition-all duration-200"
                   required
                 />
               </div>
 
               <button
-                type="submit"
-                className="w-full bg-green-500 text-white py-3 rounded-xl"
-              >
-                Sign Up
-              </button>
+              type="submit"
+              className="w-full bg-green-500 hover:bg-green-600 text-white py-3 sm:py-4 px-4 rounded-2xl cursor-pointer font-semibold text-sm sm:text-base transition-all duration-200 transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2"
+            >
+              sign up
+            </button>
             </form>
 
-            <p className="text-center text-gray-600 mt-6">
-              Already have an account?{" "}
-              <Link href="/login" className="text-green-500 font-semibold">
-                Sign in now
-              </Link>
-            </p>
+            <div className="mt-6 sm:mt-8 text-center">
+              <p className="text-gray-600 text-sm sm:text-base">
+                Already have an account?{" "}
+                <Link
+                  href="/login"
+                  className="text-green-500 cursor-pointer hover:text-green-600 font-semibold transition-colors duration-200"
+                >
+                  Sign in now
+                </Link>
+              </p>
+            </div>
           </div>
         </div>
       </div>
@@ -126,4 +135,4 @@ const Page = () => {
   );
 };
 
-export default Page;
+export default Register;

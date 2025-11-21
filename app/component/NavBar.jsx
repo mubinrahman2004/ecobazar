@@ -183,6 +183,15 @@ const NavBar = () => {
                       Contact Us
                     </Link>
                   </li>
+                  <li>
+                    <Link 
+                      href={'/registration'} 
+                      className="text-white hover:text-green-400 transition-colors text-lg block py-2"
+                      onClick={() => setIsMenuOpen(false)}
+                    >
+                      Account
+                    </Link>
+                  </li>
                 </ul>
               </div>
             )}
