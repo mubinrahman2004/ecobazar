@@ -48,7 +48,7 @@ const PopularProductItem = ({ product }) => {
               <AddToCard
                 product={product}
                 title="Add to Cart"
-                className=" bg-green-600 hover:bg-green-700 text-white px-8 py-4 rounded-full text-lg font-semibold shadow-md hover:shadow-xl transition-transform transform hover:scale-105 active:scale-95"
+                className=" bg-green-600 hover:bg-green-700 text-white px-3 py-2 rounded-full text-lg font-semibold shadow-md hover:shadow-xl transition-transform transform hover:scale-105 active:scale-95"
               />
             </div>          
 

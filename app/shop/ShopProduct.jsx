@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { CiStar } from "react-icons/ci";
+import AddToCard from "../ui/AddToCard";
 
 const ShopProduct = ({ product }) => {
   if (!product) return null;
@@ -65,7 +66,7 @@ const ShopProduct = ({ product }) => {
               <AddToCard
                 product={product}
                 title="Add to Cart"
-                className="mt-8 bg-green-600 hover:bg-green-700 text-white px-8 py-4 rounded-full text-lg font-semibold shadow-md hover:shadow-xl transition-transform transform hover:scale-105 active:scale-95"
+                className="mt-8 bg-green-600 hover:bg-green-700 text-white px-3 py-2 rounded-full text-lg font-semibold shadow-md hover:shadow-xl transition-transform transform hover:scale-105 active:scale-95"
               />
             </div>
           </div>
