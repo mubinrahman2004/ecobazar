@@ -1,3 +1,4 @@
+import AddToCard from "@/app/ui/AddToCard";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -40,23 +41,17 @@ const PopularProductItem = ({ product }) => {
               <span className="text-xl sm:text-2xl md:text-3xl font-bold text-green-600">
                 ${product.price.toFixed(2)}
               </span>
-              <span className="text-sm sm:text-base md:text-lg text-gray-500 line-through">
-                ${originalPrice.toFixed(2)}
-              </span>
+         
             </div>
 
-            {/* Static shop icon - no interactivity */}
-            <div className="bg-green-600 text-white p-2 sm:p-3 md:p-4 rounded-full shadow-lg">
-              <svg 
-                className="text-xl sm:text-2xl md:text-3xl" 
-                fill="currentColor" 
-                viewBox="0 0 16 16" 
-                width="1em" 
-                height="1em"
-              >
-                <path d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 12H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM3.102 4l1.313 7h8.17l1.313-7H3.102zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"/>
-              </svg>
-            </div>
+               <div>
+              <AddToCard
+                product={product}
+                title="Add to Cart"
+                className=" bg-green-600 hover:bg-green-700 text-white px-8 py-4 rounded-full text-lg font-semibold shadow-md hover:shadow-xl transition-transform transform hover:scale-105 active:scale-95"
+              />
+            </div>          
+
           </div>
 
         </div>

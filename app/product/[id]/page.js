@@ -1,5 +1,7 @@
-
+// app/product/[id]/page.js
+import AddToCard from "@/app/ui/AddToCard";
 import Image from "next/image";
+
 async function getProduct(id) {
   const res = await fetch(`https://dummyjson.com/products/${id}`);
   return res.json();
@@ -8,7 +10,6 @@ async function getProduct(id) {
 export default async function ProductDetails({ params }) {
   const { id } = await params;
   const product = await getProduct(id);
-  console.log(product);
 
   return (
     <section className="py-12">
@@ -31,27 +32,35 @@ export default async function ProductDetails({ params }) {
               {product?.title}
             </h1>
 
-            <p className="text-gray-60">{product?.description}</p>
+            <p className="text-gray-600 mt-4">{product?.description}</p>
 
             <p className="text-3xl font-bold text-green-600 mt-6">
               ${product?.price}
             </p>
-            <p className="text-base font-normal font-sans text-gray-500 py-2">
-              {product?.warrantyInformation}
-            </p>
-            <p className="text-base font-normal font-sans text-gray-500 py-2">
-              {product?.returnPolicy} className='text-base font-normal font-sans
-              text-gray-500 py-2'
-            </p>
-            <p className="text-base font-normal font-sans text-gray-500 py-2">
-              {product?.stock}
-            </p>
-            <p className="text-base font-normal font-sans text-gray-500 ">
-              {product?.weight}
-            </p>
-            <button className="mt-8 bg-green-600 hover:bg-green-700 text-white px-8 py-4 rounded-full text-lg font-semibold shadow-md hover:shadow-xl transition-transform transform hover:scale-105 active:scale-95">
-              Add to Cart
-            </button>
+            
+            <div className="mt-6 space-y-2">
+              <p className="text-base font-normal text-gray-500">
+                <strong>Warranty:</strong> {product?.warrantyInformation || 'Not specified'}
+              </p>
+              <p className="text-base font-normal text-gray-500">
+                <strong>Return Policy:</strong> {product?.returnPolicy || '30 days return policy'}
+              </p>
+              <p className="text-base font-normal text-gray-500">
+                <strong>Stock:</strong> {product?.stock || 'In stock'}
+              </p>
+              <p className="text-base font-normal text-gray-500">
+                <strong>Weight:</strong> {product?.weight || 'Not specified'}
+              </p>
+            </div>
+
+            <div>
+
+              <AddToCard 
+              product={product}
+              title="Add to Cart"
+              className="mt-8 bg-green-600 hover:bg-green-700 text-white px-8 py-4 rounded-full text-lg font-semibold shadow-md hover:shadow-xl transition-transform transform hover:scale-105 active:scale-95"
+            />
+            </div>
           </div>
         </div>
       </div>
