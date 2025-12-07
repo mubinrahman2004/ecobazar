@@ -7,7 +7,7 @@ const AboutCard = ({ about }) => {
       <div className="flex items-center justify-center w-12 h-12 bg-green-500 rounded-full mb-4 mx-auto">
         <FaLeaf className="text-white text-xl" />
       </div>
-      <h2 className="text-lg font-semibold text-gray-800 text-center mb-2">100% Organic food</h2>
+      <h2 className="text-lg font-semibold text-gray-800 text-center mb-2">100% Organic  food</h2>
       <h3 className="text-sm text-gray-600 text-center">100% healthy & Fresh food.</h3>
     </div>
   );
