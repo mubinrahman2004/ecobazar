@@ -7,8 +7,8 @@ import banner2 from '../../../public/Bannar2.png';
 const Banner = () => {
   return (
     <>
-      <section className="py-11">
-        <div className="container mx-auto px-4 py-6">
+      <section className="py-11 bg-white">
+        <div className="container m-auto px-4 py-6">
         <div className="flex flex-col lg:flex-row gap-4 lg:gap-6">
           <div className="w-full lg:w-2/3">
             <div className="relative w-full h-48 sm:h-64 md:h-80 lg:h-96 xl:h-[500px] rounded-xl overflow-hidden">
@@ -16,9 +16,9 @@ const Banner = () => {
                 src={banner}
                 alt="banner"
                width='870px'
-                className="object-cover hover:scale-105 transition-transform duration-300"
+                className="object-cover hover:scale-105 transition-transform duration-300 rounded-2xl"
                 priority
-                sizes="(max-width: 1024px) 100vw, 66vw"
+                sizes="(max-width: 1024px) 100vw, 33vw"
               />
             </div>
           </div>

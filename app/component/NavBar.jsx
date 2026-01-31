@@ -235,7 +235,7 @@ const NavBar = () => {
       </div>
 
       <div className="bg-black">
-        <div className="container mx-auto px-4">
+        <div className="container px-4">
           <div className="flex justify-between items-center py-3">
             <ul className="hidden md:flex space-x-6 lg:space-x-8">
               <li>
@@ -254,14 +254,7 @@ const NavBar = () => {
                   Shop
                 </Link>
               </li>
-              <li>
-                <Link
-                  href={"/pages"}
-                  className="text-white hover:text-green-400 transition-colors text-sm lg:text-base"
-                >
-                  Pages
-                </Link>
-              </li>
+             
               <li>
                 <Link
                   href={"/blog"}
@@ -311,15 +304,7 @@ const NavBar = () => {
                       Shop
                     </Link>
                   </li>
-                  <li>
-                    <Link
-                      href={"/pages"}
-                      className="text-white hover:text-green-400 transition-colors text-lg block py-2"
-                      onClick={() => setIsMenuOpen(false)}
-                    >
-                      Pages
-                    </Link>
-                  </li>
+                
                   <li>
                     <Link
                       href={"/blog"}

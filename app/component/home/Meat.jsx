@@ -3,7 +3,7 @@ import MeatItem from "./MeatItem";
 
 const Meat = () => {
   return (
-    <section className="py-5">
+    <section className="py-5 bg-white">
       <div className="container">
         <div className="grid lg:grid-cols-3 md:grid-cols-1">
           <MeatItem />

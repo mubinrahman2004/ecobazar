@@ -35,7 +35,7 @@ const NewestProduct = () => {
   ];
 
   return (
-  <section className="py-5">
+  <section className="py-5 ">
      <div className="container ">
       <h2 className="text-3xl font-semibold font-sans py-3">Newest Products</h2>
      <div className="grid grid-cols-2 md:grid-cols-5 gap-4">

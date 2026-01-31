@@ -34,7 +34,7 @@ const MeatItem = () => {
           </h3>
           
           
-          <button className="mt-3 sm:mt-4 px-5 sm:px-7 py-2 sm:py-3 bg-white text-gray-900 rounded-full font-semibold text-sm sm:text-base hover:bg-gray-100 transition-colors duration-200 transform hover:scale-105 active:scale-95 shadow-lg hover:shadow-xl">
+          <button className="mt-3 sm:mt-4 px-5 cursor-pointer sm:px-7 py-2 sm:py-3 bg-white text-gray-900 rounded-full font-semibold text-sm sm:text-base hover:bg-red-300 transition-all duration-200 transform hover:scale-105 active:scale-95 shadow-lg hover:shadow-xl">
             Shop Now
           </button>
         </div>

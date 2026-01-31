@@ -1,15 +1,19 @@
 "use client";
-import { useRouter, useSearchParams } from "next/navigation";
-import React from "react";
+import { useRouter } from "next/navigation";
+import React, { useState, useEffect } from "react";
 
-const Limit = () => {
+const Limit = ({ initialLimit }) => {
   const router = useRouter();
-  const searchParams = useSearchParams();
-  const currentLimit = searchParams.get('limit') || '20';
+  const [limit, setLimit] = useState(initialLimit);
+
+  useEffect(() => {
+    setLimit(initialLimit);
+  }, [initialLimit]);
 
   const handleLimitChange = (e) => {
     const newLimit = e.target.value;
-    const params = new URLSearchParams(searchParams.toString());
+    setLimit(newLimit);
+    const params = new URLSearchParams(window.location.search);
     params.set('limit', newLimit);
     router.push(`?${params.toString()}`, { scroll: false });
   };
@@ -17,7 +21,7 @@ const Limit = () => {
   return (
     <div className="relative">
       <select
-        value={currentLimit}
+        value={limit}
         onChange={handleLimitChange}
         className="appearance-none px-4 py-2 pr-8 bg-white border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 text-sm font-medium text-gray-700 hover:border-gray-400 transition-colors cursor-pointer"
       >

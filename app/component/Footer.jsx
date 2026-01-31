@@ -9,7 +9,7 @@ const Footer = () => {
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 lg:gap-12">
           <div className="space-y-4 sm:space-y-6">
             <h2 className="text-lg sm:text-xl font-medium text-white">
-              About Shopery
+              Ecobazar
             </h2>
             <p className="text-sm sm:text-base text-[#808080] max-w-md leading-relaxed">
               Morbi cursus porttitor enim lobortis molestie. Duis gravida turpis

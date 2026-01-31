@@ -5,8 +5,8 @@ import { IoBagOutline } from "react-icons/io5";
 
 const ProductCard = ({ product }) => {
     return (
-        <>
-            <div className="border rounded-xl overflow-hidden hover:border-purple-500 duration-300 cursor-pointer">
+        <section className="bg-white">
+            <div className="border rounded-2xl overflow-hidden hover:border-purple-500 duration-300 cursor-pointer">
                 <div className="relative group p-4">
                     <img
                         src={product.image}
@@ -39,7 +39,7 @@ const ProductCard = ({ product }) => {
                     </button>
                 </div>
             </div>
-        </>
+        </section>
     );
 };
 

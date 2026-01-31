@@ -20,7 +20,8 @@ export default async function ProductDetails({ params }) {
               src={product?.thumbnail}
               alt={product?.title}
               fill
-              className="object-cover"
+              className="object-cover bg-gray-200 p-5"
+
             />
           </div>
 

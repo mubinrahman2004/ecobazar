@@ -48,7 +48,7 @@ const Banner = () => {
 
                 
                   <div>
-                    <button className="flex items-center gap-2 px-4 py-2 sm:px-5 sm:py-3 md:px-6 md:py-3 lg:px-8 lg:py-4 bg-green-500 hover:bg-green-600 text-white font-semibold rounded-2xl transition-all duration-300 transform hover:scale-105 text-sm sm:text-base md:text-lg">
+                    <button className="flex items-center gap-2 px-4 py-2 sm:px-5 sm:py-3 md:px-6 md:py-3 lg:px-8 lg:py-4 cursor-pointer bg-green-500 hover:bg-green-600 text-white font-semibold rounded-2xl transition-all duration-300 transform hover:scale-105 text-sm sm:text-base md:text-lg">
                       Shop Now 
                       <FaArrowRight className="w-3 h-3 sm:w-4 sm:h-4" />
                     </button>
