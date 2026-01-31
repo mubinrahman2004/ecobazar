@@ -1,7 +1,6 @@
 import Image from "next/image";
 import React from "react";
 import about2 from "../../public/about2.png";
-import AboutCard from "./AboutCard";
 import { FaLeaf, FaTruck, FaShieldAlt, FaRecycle, FaHeart, FaSeedling } from "react-icons/fa";
 
 const Page = () => {
